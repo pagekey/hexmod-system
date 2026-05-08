@@ -1,7 +1,8 @@
 import subprocess
+from hex import Params
 
 
-def run(inputs: dict[str, str]) -> dict[str, str]:
+def run(params: Params) -> dict[str, str]:
     try:
         # executing the command as a list to avoid shell injection vulnerabilities
         subprocess.run(["sudo", "systemctl", "start", "hexbox-updater"], check=True)
