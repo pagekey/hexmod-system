@@ -4,4 +4,4 @@ nodes:
   update:
     inputs: {}
     outputs: []
-    provider: hexbox-system.update
+    provider: hexmod-system.update
