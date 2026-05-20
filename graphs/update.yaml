@@ -2,6 +2,6 @@ inputs: []
 outputs: {}
 nodes:
   update:
+    provider: hexmod-system.update:run
     inputs: {}
     outputs: []
-    provider: hexmod-system.update
