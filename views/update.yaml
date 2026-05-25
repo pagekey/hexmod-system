@@ -1,0 +1,24 @@
+title: "Update system"
+
+description: Get the latest software versions for your HexBox.
+
+top_level: true
+
+effects: []
+
+layout:
+  - type: label
+    text: Coming soon - click a button to compare versions.
+  
+  - type: label
+    text: Click the button below to update your system.
+
+  - type: label
+    text: 'Note: After pressing the button, wait 30 seconds before refreshing the page.'
+
+  - type: button
+    text: "Update"
+    on_click:
+      graph:
+        id: hexmod-system.update
+        inputs: {}
