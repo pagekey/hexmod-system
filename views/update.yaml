@@ -22,3 +22,6 @@ layout:
       graph:
         id: hexmod-system.update
         inputs: {}
+
+  - type: label
+    text: graph:hexmod-system.update:message

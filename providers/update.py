@@ -4,13 +4,22 @@ from hex import Params
 
 def run(params: Params) -> dict[str, str]:
     try:
-        # executing the command as a list to avoid shell injection vulnerabilities
-        subprocess.run(["sudo", "systemctl", "start", "hexbox-updater"], check=True)
-        return {"message": "Refresh the page for updates to take effect."}
+        # Schedule the systemctl command to run in a transient timer 1 second from now
+        subprocess.run(
+            [
+                "sudo",
+                "systemd-run",
+                "--on-active=1s",
+                "systemctl",
+                "start",
+                "hexbox-updater",
+            ],
+            check=True,
+        )
+
+        return {"message": "Success! Refresh in 30 seconds."}
 
     except subprocess.CalledProcessError as e:
-        # Handle cases where the command fails (e.g., service not found or permission denied)
-        return {"message": f"Failed to start update: {str(e)}"}
-
+        return {"message": f"Failed to schedule update: {str(e)}"}
     except Exception as e:
         return {"message": f"An unexpected error occurred: {str(e)}"}

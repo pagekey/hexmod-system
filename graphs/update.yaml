@@ -1,7 +1,8 @@
 inputs: []
-outputs: {}
+outputs:
+  message: update.message
 nodes:
   update:
     provider: hexmod-system.update:run
     inputs: {}
-    outputs: []
+    outputs: [message]
